@@ -11,36 +11,20 @@ export const login = (uid) => ({
 	uid,
 });
 
-export const startLoginWithGoogle = () => {
-	return () => {
-		return firebase.auth().signInWithPopup(googleAuthProvider);
-	};
-};
+export const startLoginWithGoogle = () => () =>
+	firebase.auth().signInWithPopup(googleAuthProvider);
 
-export const startLoginWithFacebook = () => {
-	return () => {
-		return firebase.auth().signInWithPopup(facebookAuthProvider);
-	};
-};
+export const startLoginWithFacebook = () => () =>
+	firebase.auth().signInWithPopup(facebookAuthProvider);
 
-export const startLoginWithTwitter = () => {
-	return () => {
-		return firebase.auth().signInWithPopup(twitterAuthProvider);
-	};
-};
+export const startLoginWithTwitter = () => () =>
+	firebase.auth().signInWithPopup(twitterAuthProvider);
 
-export const startLoginWithGithub = () => {
-	return () => {
-		return firebase.auth().signInWithPopup(githubAuthProvider);
-	};
-};
+export const startLoginWithGithub = () => () =>
+	firebase.auth().signInWithPopup(githubAuthProvider);
 
 export const logout = () => ({
 	type: 'LOGOUT',
 });
 
-export const startLogout = () => {
-	return () => {
-		return firebase.auth().signOut();
-	};
-};
+export const startLogout = () => () => firebase.auth().signOut();

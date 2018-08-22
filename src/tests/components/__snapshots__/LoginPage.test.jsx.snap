@@ -17,6 +17,8 @@ exports[`should render LoginPage correctly 1`] = `
     </p>
     <button
       className="box-layout__button button--red"
+      onClick={[MockFunction]}
+      type="button"
     >
       <i
         className="fa fa-google fa-fw"
@@ -25,6 +27,8 @@ exports[`should render LoginPage correctly 1`] = `
     </button>
     <button
       className="box-layout__button"
+      onClick={[MockFunction]}
+      type="button"
     >
       <i
         className="fa fa-facebook fa-fw"
@@ -33,6 +37,8 @@ exports[`should render LoginPage correctly 1`] = `
     </button>
     <button
       className="box-layout__button button--light-blue"
+      onClick={[MockFunction]}
+      type="button"
     >
       <i
         className="fa fa-twitter fa-fw"
@@ -41,6 +47,8 @@ exports[`should render LoginPage correctly 1`] = `
     </button>
     <button
       className="box-layout__button button--dark"
+      onClick={[MockFunction]}
+      type="button"
     >
       <i
         className="fa fa-github fa-fw"

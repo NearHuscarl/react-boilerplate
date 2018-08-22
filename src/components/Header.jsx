@@ -1,25 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { startLogout } from '../actions/auth';
+import * as authActions from '../actions/auth';
 
-export const Header = (props) => (
-	<header className="header">
-		<div className="content-container">
-			<div className="header__content">
-				<Link className="header__title" to="/dashboard">
-					<h1>Boilerplate</h1>
-				</Link>
-				<button className="button button--link" onClick={props.startLogout}>
-					Logout
-				</button>
+export const Header = (props) => {
+	const { startLogout } = props;
+
+	return (
+		<header className="header">
+			<div className="content-container">
+				<div className="header__content">
+					<Link className="header__title" to="/dashboard">
+						<h1>Boilerplate</h1>
+					</Link>
+					<button
+						type="button"
+						className="button button--link"
+						onClick={startLogout}>
+						Logout
+					</button>
+				</div>
 			</div>
-		</div>
-	</header>
-);
+		</header>
+	);
+};
+
+Header.propTypes = {
+	startLogout: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = (dispatch) => ({
-	startLogout: () => dispatch(startLogout()),
+	startLogout: () => dispatch(authActions.startLogout()),
 });
 
 export default connect(

@@ -8,6 +8,7 @@ exports[`should render ConfirmModal correctly 1`] = `
   closeTimeoutMS={200}
   contentLabel="Confirm Delete"
   isOpen={false}
+  onRequestClose={[Function]}
   parentSelector={[Function]}
   portalClassName="ReactModalPortal"
   shouldCloseOnEsc={true}
@@ -17,14 +18,20 @@ exports[`should render ConfirmModal correctly 1`] = `
 >
   <h3
     className="modal__title"
-  />
+  >
+    are you sure?
+  </h3>
   <button
     className="button modal__button"
+    onClick={[MockFunction]}
+    type="button"
   >
     yes
   </button>
   <button
     className="button modal__button"
+    onClick={[MockFunction]}
+    type="button"
   >
     no
   </button>

@@ -9,18 +9,16 @@ import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
-const AppRouter = (props) => {
-	return (
-		<Router history={history}>
-			<div>
-				<Switch>
-					<PublicRoute path="/" component={LoginPage} exact={true} />
-					<PrivateRoute path="/dashboard" component={DashboardPage} />
-					<Route component={NotFoundPage} />
-				</Switch>
-			</div>
-		</Router>
-	);
-};
+const AppRouter = () => (
+	<Router history={history}>
+		<div>
+			<Switch>
+				<PublicRoute path="/" component={LoginPage} exact />
+				<PrivateRoute path="/dashboard" component={DashboardPage} />
+				<Route component={NotFoundPage} />
+			</Switch>
+		</div>
+	</Router>
+);
 
 export default AppRouter;
