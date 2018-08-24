@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as authActions from '../actions/auth';
 
-export const Header = (props) => {
+const Header = (props) => {
 	const { startLogout } = props;
 
 	return (
@@ -29,6 +29,8 @@ export const Header = (props) => {
 Header.propTypes = {
 	startLogout: PropTypes.func.isRequired,
 };
+
+export const MockHeader = Header;
 
 const mapDispatchToProps = (dispatch) => ({
 	startLogout: () => dispatch(authActions.startLogout()),

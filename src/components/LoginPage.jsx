@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as authActions from '../actions/auth';
 
-export const LoginPage = (props) => {
+const LoginPage = (props) => {
 	const {
 		startLoginWithGoogle,
 		startLoginWithFacebook,
@@ -55,6 +55,8 @@ LoginPage.propTypes = {
 	startLoginWithTwitter: PropTypes.func.isRequired,
 	startLoginWithGithub: PropTypes.func.isRequired,
 };
+
+export const MockLoginPage = LoginPage;
 
 const mapDispatchToProps = (dispatch) => ({
 	startLoginWithGoogle: () => dispatch(authActions.startLoginWithGoogle()),

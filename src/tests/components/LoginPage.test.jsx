@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { LoginPage } from '../../components/LoginPage';
+import { MockLoginPage } from '../../components/LoginPage';
 
 let wrapper;
 let startLoginWithGoogle;
@@ -14,7 +14,7 @@ beforeAll(() => {
 	startLoginWithTwitter = jest.fn();
 	startLoginWithGithub = jest.fn();
 	wrapper = shallow(
-		<LoginPage
+		<MockLoginPage
 			startLoginWithGoogle={startLoginWithGoogle}
 			startLoginWithFacebook={startLoginWithFacebook}
 			startLoginWithTwitter={startLoginWithTwitter}

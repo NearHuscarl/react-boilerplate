@@ -26,6 +26,11 @@
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-one-expression-per-line': 'off',
 		'no-tabs': 0, // disable error (airbnb will throw error when using tab)
+		"import/no-extraneous-dependencies": [2, {
+			"devDependencies": ["./src/tests/**", "./webpack.config.js"],
+			"optionalDependencies": false,
+			"peerDependencies": false
+		}],
 	},
 	'settings': {
 		'import/resolver': {
