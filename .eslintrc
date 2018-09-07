@@ -31,6 +31,8 @@
 			"optionalDependencies": false,
 			"peerDependencies": false
 		}],
+		// do not make sense when destucturing state with many properties to an object
+		"react/destructuring-assignment": [0],
 	},
 	'settings': {
 		'import/resolver': {
