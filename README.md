@@ -22,6 +22,13 @@ React boilerplate is a front-end template to quickly prototype react application
 
 ## Download
 
+* Install [nodejs] and yarn (optional, you can just use npm)
+
+```bash
+$ npm install -g yarn
+```
+
+* Open the terminal and type
 ```bash
 $ git clone https://github.com/NearHuscarl/react-boilerplate
 $ cd react-boilerplate
@@ -52,3 +59,5 @@ $ yarn start
 ```bash
 $ yarn test
 ```
+
+[nodejs]: https://nodejs.org/en/download/
