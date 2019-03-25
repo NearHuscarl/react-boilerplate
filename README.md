@@ -51,7 +51,7 @@ Follow [firebase instructions](https://firebase.google.com/docs/auth/?authuser=0
 
 ```bash
 $ yarn run build:dev
-$ yarn start
+$ yarn run dev-server
 ```
 
 ## Test
