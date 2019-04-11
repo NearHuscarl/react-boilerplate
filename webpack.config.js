@@ -1,22 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 if (process.env.NODE_ENV === 'test') {
-	// dotenv.config({ path: '.env_test' });
+	dotenv.config({ path: '.env_test' });
 } else if (process.env.NODE_ENV === 'development') {
 	dotenv.config({ path: '.env_development' });
 }
 
 module.exports = (env) => {
 	const isProduction = env === 'production';
-	const CSSExtract = new ExtractTextPlugin('styles.css');
 
 	return {
-		entry: ['babel-polyfill', './src/app.js'],
+		entry: ['@babel/polyfill', './src/app.js'],
 		output: {
 			path: path.join(__dirname, 'public', 'dist'),
 			filename: 'bundle.js',
@@ -30,24 +29,27 @@ module.exports = (env) => {
 				},
 				{
 					test: /\.s?css$/,
-					use: ['css-hot-loader'].concat(
-						CSSExtract.extract({
-							use: [
-								{
-									loader: 'css-loader',
-									options: {
-										sourceMap: true,
-									},
-								},
-								{
-									loader: 'sass-loader',
-									options: {
-										sourceMap: true,
-									},
-								},
-							],
-						}),
-					),
+					use: [
+						'css-hot-loader',
+						{
+							loader: MiniCssExtractPlugin.loader,
+							// options: {
+							// 	hmr: !isProduction,
+							// },
+						},
+						{
+							loader: 'css-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+					]
 				},
 				{
 					test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
@@ -64,7 +66,9 @@ module.exports = (env) => {
 			],
 		},
 		plugins: [
-			CSSExtract,
+			new MiniCssExtractPlugin({
+				filename: 'styles.css',
+			}),
 			new webpack.DefinePlugin({
 				'process.env.FIREBASE_API_KEY': JSON.stringify(
 					process.env.FIREBASE_API_KEY,
